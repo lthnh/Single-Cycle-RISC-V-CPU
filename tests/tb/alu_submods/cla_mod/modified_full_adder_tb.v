@@ -26,7 +26,7 @@ module modified_full_adder_tb;
 
   integer i;
   initial begin
-    for (i = 0; i < 8; i++) begin
+    for (i = 0; i < 8; i = i+1) begin
       a_in = i[0]; b_in = i[1]; c_in = i[2];
       #1;
       `assert_eq(s_out, s_ref)
