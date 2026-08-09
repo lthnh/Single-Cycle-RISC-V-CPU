@@ -20,3 +20,5 @@ modified_full_adder_tb: modified_full_adder_tb.v modified_full_adder.v
 four_bit_lookahead_tb: four_bit_lookahead_tb.v four_bit_lookahead.v
 	iverilog $(FLAGS) -o $(TARGET_PATH)/$@ $^
 	vvp $(TARGET_PATH)/$@
+
+.SILENT: all four_bit_cla_tb modified_full_adder_tb four_bit_lookahead_tb

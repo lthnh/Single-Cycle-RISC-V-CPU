@@ -16,3 +16,5 @@ half_adder_tb: half_adder_tb.v half_adder.v
 full_adder_tb: full_adder_tb.v full_adder.v half_adder.v
 	iverilog $(FLAGS) -o $(TARGET_PATH)/$@ $^
 	vvp $(TARGET_PATH)/$@
+
+.SILENT: all half_adder_tb full_adder_tb
