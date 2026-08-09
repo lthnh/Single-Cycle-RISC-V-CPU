@@ -7,6 +7,12 @@ TARGET_PATH := $(PROJECT_DIR)/tests/bin
 
 FLAGS := -I$(PROJECT_DIR)/inc
 
+all: modified_full_adder_tb four_bit_lookahead_tb
+
 modified_full_adder_tb: modified_full_adder_tb.v modified_full_adder.v
+	iverilog $(FLAGS) -o $(TARGET_PATH)/$@ $^
+	vvp $(TARGET_PATH)/$@
+
+four_bit_lookahead_tb: four_bit_lookahead_tb.v four_bit_lookahead.v
 	iverilog $(FLAGS) -o $(TARGET_PATH)/$@ $^
 	vvp $(TARGET_PATH)/$@
