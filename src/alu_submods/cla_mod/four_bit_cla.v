@@ -4,8 +4,8 @@
 module four_bit_cla(
   input wire [`CLA_SUBCOMPONENT_BIT_WIDTH-1:0] a_in, b_in,
   input wire c_in,
-  output reg [`CLA_SUBCOMPONENT_BIT_WIDTH-1:0] s_out,
-  output reg c_out
+  output wire [`CLA_SUBCOMPONENT_BIT_WIDTH-1:0] s_out,
+  output wire c_out
 );
   wire [`CLA_SUBCOMPONENT_BIT_WIDTH-1:0] g_int;
   wire [`CLA_SUBCOMPONENT_BIT_WIDTH-1:0] p_int;
