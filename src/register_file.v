@@ -13,7 +13,7 @@ module register_file(
 
   initial begin : reg_file_init
     integer i;
-    for (i = 0; i < `REG_FILE_SIZE; i++) registers[i] <= `WIDTH'b0;
+    for (i = 0; i < `REG_FILE_SIZE; i = i+1) registers[i] <= `WIDTH'b0;
   end
 
   assign word_data1_out = (addr1_in == 5'b0) ? `WIDTH'b0 : registers[addr1_in];

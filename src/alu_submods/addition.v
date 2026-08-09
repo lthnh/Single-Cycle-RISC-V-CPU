@@ -15,7 +15,7 @@ module addition(
   assign carry_int[0] = carry_in;
 
   genvar i;
-  for (i = 0; i < `WIDTH-1; i++) begin: full_adder_chain
+  for (i = 0; i < `WIDTH-1; i = i+1) begin: full_adder_chain
     full_adder fa (
       .a_in(operand_a_in[i]),
       .b_in(operand_b_in[i]),

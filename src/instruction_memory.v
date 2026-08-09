@@ -10,7 +10,7 @@ module instruction_memory(
 
   initial begin : instr_mem_init
     integer i;
-    for (i = 0; i < `INSTR_MEM_SIZE; i++)
+    for (i = 0; i < `INSTR_MEM_SIZE; i = i+1)
       instr_mem[i] = `WIDTH'b0;
   end
 

@@ -13,7 +13,7 @@ module data_memory(
 
   initial begin : data_mem_init
     integer i;
-    for (i = 0; i < `DATA_MEM_SIZE; i++)
+    for (i = 0; i < `DATA_MEM_SIZE; i = i+1)
       data_mem[i] <= 0;
   end
 
