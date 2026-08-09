@@ -1,4 +1,4 @@
 {
-    "flags": "-f ../tools/slang/slang-server.f"
+    "flags": "-f tools/slang/slang-server.f"
 }
 
