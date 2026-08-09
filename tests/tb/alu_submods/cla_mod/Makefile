@@ -1,0 +1,12 @@
+PROJECT_NAME := single-cycle-risc-v-cpu
+PROJECT_DIR = $(shell find $$HOME -name $(PROJECT_NAME) -type d 2>/dev/null)
+
+vpath %.v $(PROJECT_DIR)/src $(PROJECT_DIR)/src/alu_submods $(PROJECT_DIR)/src/alu_submods/cla_mod $(PROJECT_DIR)/src/alu_submods/rca_mod
+
+TARGET_PATH := $(PROJECT_DIR)/tests/bin
+
+FLAGS := -I$(PROJECT_DIR)/inc
+
+modified_full_adder_tb: modified_full_adder_tb.v modified_full_adder.v
+	iverilog $(FLAGS) -o $(TARGET_PATH)/$@ $^
+	vvp $(TARGET_PATH)/$@
