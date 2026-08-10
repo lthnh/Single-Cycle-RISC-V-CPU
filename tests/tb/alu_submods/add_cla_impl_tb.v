@@ -31,7 +31,7 @@ module add_cla_impl_tb;
       for (j = 0; j < 2; j = j+1) begin
         operand_a_in = $unsigned($random); operand_b_in = $unsigned($random); carry_in = j[0];
         #1;
-        `assert_eq_fmt(result, sum_ref[`WIDTH-1:0], %b)
+        `assert_eq_fmt(result, sum_ref[`WIDTH-1:0], %d)
         `assert_eq_fmt(carry_out, sum_ref[`WIDTH], %b)
       end
     end

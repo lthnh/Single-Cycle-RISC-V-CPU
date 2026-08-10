@@ -34,7 +34,7 @@ module add_rca_impl_tb;
         operand_a_in = $unsigned($random); operand_b_in = $unsigned($random); carry_in = j[0];
         #1;
         `assert_eq_fmt(result, sum_ref[`WIDTH-1:0], %d)
-        `assert_eq_fmt(carry_out, sum_ref[`WIDTH], %d)
+        `assert_eq_fmt(carry_out, sum_ref[`WIDTH], %b)
       end
     end
     $display("[INFO] %m is passed!");
