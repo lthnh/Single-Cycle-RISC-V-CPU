@@ -9,6 +9,9 @@ test: $(TEST_DIR)
 $(TEST_DIR):
 	$(MAKE) -C $@
 
+clean:
+	rm -r tests/bin/*
+
 .PHONY: test $(TEST_DIR)
 
 .SILENT: test $(TEST_DIR)
