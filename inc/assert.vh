@@ -3,7 +3,7 @@
 
 `define assert_eq(signal, value) \
   if (signal !== value) begin \
-    $display("[INFO] ASSERTION FAILED in %m: expected signal to be %b, but actual %b", signal, value); \
+    $display("[INFO] ASSERTION FAILED in %m: expected signal to be %b, but actual %b", value, signal); \
     $finish; \
   end
 
