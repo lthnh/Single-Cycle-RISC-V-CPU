@@ -1,5 +1,4 @@
-`timescale 1ns/1ps
-
+`include "common.vh"
 `include "alu_submods/cla_mod/cla.vh"
 `include "assert.vh"
 

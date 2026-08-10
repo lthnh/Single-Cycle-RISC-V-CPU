@@ -1,5 +1,4 @@
-`timescale 1ns/1ps
-
+`include "common.vh"
 `include "assert.vh"
 
 module modified_full_adder_tb;
