@@ -1,4 +1,5 @@
 `include "common.vh"
+`include "alu.vh"
 `include "alu_submods/cla_mod/cla.vh"
 
 module add(
