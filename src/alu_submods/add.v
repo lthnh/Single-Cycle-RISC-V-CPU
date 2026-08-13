@@ -5,7 +5,7 @@
 module add(
   input wire [`WIDTH-1:0] operand_a_in, operand_b_in,
   input wire carry_in,
-  output wire [`WIDTH-1:0] result,
+  output wire [`WIDTH-1:0] result_out,
   output wire carry_out
 );
 `ifdef RIPPLE_CARRY_ADDER_IMPL
@@ -19,7 +19,7 @@ module add(
       .a_in(operand_a_in[i]),
       .b_in(operand_b_in[i]),
       .c_in(carry_int[i]),
-      .s_out(result[i]),
+      .s_out(result_out[i]),
       .c_out(carry_int[i+1])
     );
   end
@@ -41,7 +41,7 @@ module add(
       .a_in (operand_a_in[idx_end:idx_start]),
       .b_in (operand_b_in[idx_end:idx_start]),
       .c_in (carry_int[i]),
-      .s_out(result[idx_end:idx_start]),
+      .s_out(result_out[idx_end:idx_start]),
       .c_out(carry_int[i+1])
     );
   end

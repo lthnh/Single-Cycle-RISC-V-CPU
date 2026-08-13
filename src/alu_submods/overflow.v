@@ -1,26 +1,26 @@
 module overflow(
-  input wire operand_a_sign,
-  input wire operand_b_sign,
-  input wire result_sign,
-  input wire [6:0] opcode,
-  input wire [31:25] funct7,
-  output reg overflow_signal
+  input wire operand_a_sign_in,
+  input wire operand_b_sign_in,
+  input wire result_sign_in,
+  input wire [6:0] opcode_in,
+  input wire [31:25] funct7_in,
+  output reg overflow_signal_out
 );
 
 always @* begin
-  case (opcode)
+  case (opcode_in)
     7'b0110011, 7'b0010011: begin: ovf_add_addi_sub
       // positive + positive = negative or negative + negative = positive
-      if (operand_a_sign == operand_b_sign && operand_a_sign == ~result_sign && ~funct7[30])
-        overflow_signal = 1'b1;
+      if (operand_a_sign_in == operand_b_sign_in && operand_a_sign_in == ~result_sign_in && ~funct7_in[30])
+        overflow_signal_out = 1'b1;
       // positive - negative = negative or negative - positive = positive
-      else if (operand_a_sign != operand_b_sign && operand_b_sign == result_sign && funct7[30])
-        overflow_signal = 1'b1;
+      else if (operand_a_sign_in != operand_b_sign_in && operand_b_sign_in == result_sign_in && funct7_in[30])
+        overflow_signal_out = 1'b1;
       else
-        overflow_signal = 1'b0;
+        overflow_signal_out = 1'b0;
     end
     default:
-      overflow_signal = 1'b0;
+      overflow_signal_out = 1'b0;
   endcase
 end
 
