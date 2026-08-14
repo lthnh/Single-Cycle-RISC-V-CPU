@@ -1,0 +1,63 @@
+$date
+	Fri Aug 14 17:51:14 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module d_flip_flop_tb $end
+$scope module dff_dut $end
+$var wire 1 ! D_in $end
+$var wire 1 " clk $end
+$var wire 1 # rst $end
+$var reg 1 $ Q_out $end
+$var reg 1 % Qn_out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1%
+0$
+1#
+0"
+0!
+$end
+#1
+1"
+0#
+#2
+0"
+#3
+0%
+1$
+1"
+1!
+#4
+0"
+#5
+1%
+0$
+1"
+0!
+#6
+0"
+#7
+0%
+1$
+1"
+1!
+#8
+0"
+#9
+1%
+0$
+1"
+1#
+#10
+0"
