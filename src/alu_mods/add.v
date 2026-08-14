@@ -1,5 +1,4 @@
 `include "common.vh"
-`include "alu.vh"
 `include "alu_submods/cla_mod/cla.vh"
 
 module add(
@@ -28,7 +27,6 @@ module add(
 `endif
 
 `ifdef CARRY_LOOKAHEAD_ADDER_IMPL
-
   wire [`WIDTH/`CLA_SUBCOMPONENT_BIT_WIDTH:0] carry_int;
 
   assign carry_int[0] = carry_in;

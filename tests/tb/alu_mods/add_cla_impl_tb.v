@@ -1,4 +1,5 @@
 `include "common.vh"
+`include "alu.vh"
 `include "assert.vh"
 
 `undef RIPPLE_CARRY_ADDER_IMPL
@@ -10,14 +11,14 @@
 module add_cla_impl_tb;
   reg [`WIDTH-1:0] operand_a_in, operand_b_in;
   reg carry_in;
-  wire [`WIDTH-1:0] result;
+  wire [`WIDTH-1:0] result_out;
   wire carry_out;
 
   add add_dut (
     .operand_a_in(operand_a_in),
     .operand_b_in(operand_b_in),
     .carry_in    (carry_in),
-    .result      (result),
+    .result_out  (result_out),
     .carry_out   (carry_out)
   );
 
@@ -31,7 +32,7 @@ module add_cla_impl_tb;
       for (j = 0; j < 2; j = j+1) begin
         operand_a_in = $unsigned($random); operand_b_in = $unsigned($random); carry_in = j[0];
         #1;
-        `assert_eq_fmt(result, sum_ref[`WIDTH-1:0], %d)
+        `assert_eq_fmt(result_out, sum_ref[`WIDTH-1:0], %d)
         `assert_eq_fmt(carry_out, sum_ref[`WIDTH], %b)
       end
     end

@@ -1,7 +1,7 @@
 PROJECT_NAME := single-cycle-risc-v-cpu
 PROJECT_DIR = $(shell find $$HOME -name $(PROJECT_NAME) -type d 2>/dev/null)
 
-vpath %.v $(PROJECT_DIR)/src $(PROJECT_DIR)/src/alu_submods $(PROJECT_DIR)/src/alu_submods/cla_mod $(PROJECT_DIR)/src/alu_submods/rca_mod
+vpath %.v $(PROJECT_DIR)/src $(PROJECT_DIR)/src/alu_mods $(PROJECT_DIR)/src/alu_mods/add_mods/cla_mod $(PROJECT_DIR)/src/alu_mods/add_mods/rca_mod
 
 TARGET_PATH := $(PROJECT_DIR)/tests/bin
 
