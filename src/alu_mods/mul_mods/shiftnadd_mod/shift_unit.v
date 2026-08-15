@@ -18,10 +18,10 @@ module shift_unit(
   );
 
   mux21 m21 (
-    .s_in  ({s_in, s_set_in}),
+    // The order is from right to left as defined by s_in [1:0]
+    .s_in  ({s_set_in, s_in}),
     .sel_in(set),
     .s_out (D_int)
   );
-
 endmodule
 

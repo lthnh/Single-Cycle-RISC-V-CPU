@@ -5,9 +5,9 @@ module mux21(
 );
   always @* begin
     if (!sel_in)
-      s_out <= s_in[0];
+      s_out = s_in[0];
     else
-      s_out <= s_in[1];
+      s_out = s_in[1];
   end
 endmodule
 
