@@ -2,7 +2,7 @@ module shift_unit(
   input wire s_in,
   input wire s_set_in,
   input wire clk,
-  input wire rst,
+  input wire rstn,
   input wire set,
   output wire s_out,
   output wire sn_out
@@ -12,7 +12,7 @@ module shift_unit(
   d_flip_flop dff (
     .D_in  (D_int),
     .clk   (clk),
-    .rst   (rst),
+    .rstn  (rstn),
     .Q_out (s_out),
     .Qn_out(sn_out)
   );
