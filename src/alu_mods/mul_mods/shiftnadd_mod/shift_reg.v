@@ -3,9 +3,9 @@
 module shift_reg(
   input wire [`WIDTH-1:0] n_in,
   input wire clk,
-  input wire rst,
+  input wire rstn,
   input wire set,
-  output reg [`WIDTH-1:0] n_out,
+  output wire [`WIDTH-1:0] n_out,
   output reg busy
 );
   wire [`WIDTH:0] s_int;
@@ -19,7 +19,7 @@ module shift_reg(
       .s_in    (s_int[i]),
       .s_set_in(n_in[i]),
       .clk     (clk),
-      .rst     (rst),
+      .rstn    (rstn),
       .set     (set),
       .s_out   (s_int[i+1]),
       .sn_out  ()
@@ -28,17 +28,16 @@ module shift_reg(
 
   always @(posedge clk) begin
     if (set) begin
-      counter <= 32;
-      busy <= 1'b1;
+      counter = `WIDTH;
+      busy = 1'b1;
+    end else begin
+      if (counter > 0)
+        counter = counter - 1;
+      else
+        busy = 1'b0;
     end
-    if (counter > 0)
-      counter <= counter - 1;
-    else
-      busy <= 1'b0;
   end
 
-  always @(posedge clk) begin
-    n_out <= s_int[`WIDTH-1:0];
-  end
+  assign n_out = s_int[`WIDTH:1];
 endmodule
 
