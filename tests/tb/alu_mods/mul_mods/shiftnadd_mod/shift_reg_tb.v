@@ -4,7 +4,7 @@
 module shift_reg_tb;
   reg [`WIDTH-1:0] n_in;
   reg clk, rstn, set;
-  wire [`WIDTH-1:0] n_out;
+  wire [(2*`WIDTH)-1:0] n_out;
   wire busy;
 
   shift_reg sr_dut (

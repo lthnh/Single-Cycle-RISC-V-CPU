@@ -6,11 +6,10 @@ module d_flip_flop(
   assign Qn_out = ~Q_out;
 
   always @(posedge clk or negedge rstn) begin
-    if (rstn) begin
+    if (rstn)
       Q_out <= D_in;
-    end else begin
+    else
       Q_out <= 1'b0;
-    end
   end
 endmodule
 
