@@ -10,9 +10,13 @@ SIMULATE_FLAGS = -dumpfile=$(PROJECT_DIR)/tests/wf/$@.vcd
 
 WAVEFORM_VIEWER := surfer
 
-all: program_counter_tb
+all: program_counter_tb instruction_memory_tb
 
 program_counter_tb: program_counter_tb.v program_counter.v
+	iverilog $(COMPILE_FLAGS) -o $(TARGET_PATH)/$@ $^
+	vvp $(TARGET_PATH)/$@ $(SIMULATE_FLAGS)
+
+instruction_memory_tb: instruction_memory_tb.v instruction_memory.v
 	iverilog $(COMPILE_FLAGS) -o $(TARGET_PATH)/$@ $^
 	vvp $(TARGET_PATH)/$@ $(SIMULATE_FLAGS)
 
@@ -21,4 +25,4 @@ program_counter_tb: program_counter_tb.v program_counter.v
 view.%:
 	$(WAVEFORM_VIEWER) $(PROJECT_DIR)/tests/wf/$*.vcd
 
-.SILENT: all program_counter_tb
+.SILENT: all program_counter_tb instruction_memory_tb

@@ -11,11 +11,6 @@ module register_file(
 );
   reg [`WIDTH-1:0] registers[`REG_FILE_SIZE-1:0];
 
-  initial begin : reg_file_init
-    integer i;
-    for (i = 0; i < `REG_FILE_SIZE; i = i+1) registers[i] <= `WIDTH'b0;
-  end
-
   assign word_data1_out = (addr1_in == 5'b0) ? `WIDTH'b0 : registers[addr1_in];
   assign word_data2_out = (addr2_in == 5'b0) ? `WIDTH'b0 : registers[addr2_in];
 
