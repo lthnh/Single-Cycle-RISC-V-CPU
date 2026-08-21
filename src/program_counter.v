@@ -9,4 +9,3 @@ module program_counter (
     addr_out <= addr_in;
   end
 endmodule
-
